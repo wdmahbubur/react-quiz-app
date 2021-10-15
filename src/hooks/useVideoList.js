@@ -34,7 +34,6 @@ const useVideoList = (page) => {
                 console.log(err)
                 setLoading(false);
                 setError(true);
-                fetchVideos();
             }
         }
         fetchVideos();

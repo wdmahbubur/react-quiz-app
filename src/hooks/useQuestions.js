@@ -30,7 +30,6 @@ const useQuestions = (videoId) => {
                 console.log(err)
                 setLoading(false);
                 setError(true);
-                fetchQuestion();
             }
         }
         fetchQuestion();

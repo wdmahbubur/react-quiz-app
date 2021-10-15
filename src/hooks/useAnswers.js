@@ -30,7 +30,6 @@ const useAnswers = (videoId) => {
                 console.log(err)
                 setLoading(false);
                 setError(true);
-                fetchAnswers();
             }
         }
         fetchAnswers();
