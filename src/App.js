@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Layout from "./components/Layout/Layout";
+import Home from "./components/Pages/Home/Home";
+import Login from "./components/Pages/Login/Login";
+import Quiz from "./components/Pages/Quiz/Quiz";
+import Result from "./components/Pages/Result/Result";
+import Signup from "./components/Pages/Signup/Signup";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import AuthProvider from "./Context/AuthContext";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+      <Switch>
+        <AuthProvider>
+          <Layout>
+            <Route exact path="/" component={Home} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Login} />
+            <PrivateRoute exact path="/quiz/:videoId" >
+              <Quiz></Quiz>
+            </PrivateRoute>
+            <PrivateRoute exact path="/result/:videoId">
+              <Result></Result>
+            </PrivateRoute>
+          </Layout>
+        </AuthProvider>
+
+      </Switch>
+    </Router>
   );
 }
 
