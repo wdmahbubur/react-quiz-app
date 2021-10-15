@@ -10,8 +10,8 @@ const Nav = () => {
       <ul>
         <li>
           <Link to="/" className="brand">
-            <img src={logo} alt="Learn with Sumit Logo" />
-            <h3>Learn with Sumit</h3>
+            <img src={logo} alt="Programming Quiz" />
+            <h3>Programming Quiz</h3>
           </Link>
         </li>
       </ul>
